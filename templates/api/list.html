@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <div class="home">
+        <ul class="post-list">
+          {% for post in articles %}
+          <li>
+            <div class="postcard" >
+                <img class="thumbnail" src="{{ post.image_url }}"/>
+                <h2>
+                    <a class="post-link" href="{% url 'detailpost' post.slug %}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <p class="subtitle">{{ post.subtitle }}</p>
+                <span class="post-meta">{{ post.created }}</span>
+            </div>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+    <h2>{{ object.title }}</h2>
+    <img src="{{ object.image_url }}" width="200px" height="200px" >
+    <h4>{{ object.author }}</h4>
+    
+    <button type="submit" onclick='window.location.href="{% url 'updatepost' object.id %}"'>
+        Update
+    </button>
+    
+    <button type="submit" onclick='window.location.href="{% url 'deletepost' object.id %}"'>
+        Delete
+    </button>
+    <p>{{ object.post }}</p>
+
+{% endblock %}

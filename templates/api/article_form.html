@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+    <h3>Write a Post</h3>
+    <div class="articleform">
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Title: </label>{{ form.title }}
+                <img src="" width="300px" height="200px" id="preview-img">
+                <label>Subtitle : </label>{{ form.subtitle }}
+                <label>Status : </label> {{ form.status }}
+                <label>Image URL : </label>{{ form.image_url }}
+                <label>Body : </label>{{ form.post }}
+                </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById("id_image_url").addEventListener('blur', () => {
+            var image = document.getElementById('id_image_url').value;
+                    console.log(image);
+            document.getElementById("preview-img").src = image;
+                });
+    </script>
+{% endblock %}
